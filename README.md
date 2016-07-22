@@ -61,7 +61,7 @@ arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49&center=34.0547155,-1
 
 The scale for the given location.  
 
-`scale`: If coordinates are being sent, an optional scale can be specified for the initial zoom to the center point. (*optional*)
+`scale`: If coordinates are being sent, an optional scale can be specified for the initial zoom to the center point instead of max scale (*optional*)
 
 The following example URL defines a map to open and a location to center and scale the map:
 
