@@ -57,6 +57,18 @@ The following example URL defines a map to open and a location to center the map
 arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49&center=34.0547155,-117.1961714
 ```
 
+####Scale for provided location
+
+The scale for the given location.  
+
+`scale`: If coordinates are being sent, an optional scale can be specified for the initial zoom to the center point. (*optional*)
+
+The following example URL defines a map to open and a location to center and scale the map:
+
+```
+arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49&center=34.0547155,-117.1961714&scale=2500
+```
+
 ####Errors
 If an error is encountered when processing a URL scheme, the user will receive an alert.
 <a name="sample"></a>
