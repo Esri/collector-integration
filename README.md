@@ -37,12 +37,12 @@ The rest of this topic describes the various parameters Collector supports.
 
 This is one of the simplest schemes that can be used. The following example url scheme demonstrates how to open a specific map within collector.
 
-`itemID`: The web map to open within Collector.  (*optional*)
+`itemid`: The web map to open within Collector.  (*optional*)
 
 The following example URL defines opening a web map:
 
 ```
-arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49 
+arcgis-collector://?itemid=35b1ccecf226485ea7d593f100996b49 
 ```
 
 ####Center at a given location
