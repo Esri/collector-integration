@@ -30,6 +30,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         ("Open Item and Center", "arcgis-collector://?itemid=ab914ba3a7914e8f810efcace999906e&center=34.0547155,-117.1961714"),
         ("Bad Item", "arcgis-collector://?itemid=636363636363"),
         ("Bad coordinates", "arcgis-collector://?center=33434344.0547155,-11343437.1961714"),
+        ("Bad number params", "arcgis-collector://?center=33434344.0547155,-11343437.1961714&itemid"),
     ]
 
     override func viewDidLoad() {
