@@ -41,16 +41,6 @@ public final class CollectorURLScheme {
         let unencodableString: String
     }
     
-//    public enum LocationType {
-//        
-//        case WGS84(point: AGSPoint)
-//        
-//        public func queryArgument() throws -> String {
-//            switch self {
-//            case .WGS84(point: let point):
-//                return "\(point.y),\(point.x)"
-//        }
-//    }
     
     public var itemid: String
     public var center: String?
