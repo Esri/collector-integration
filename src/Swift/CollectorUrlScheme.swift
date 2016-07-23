@@ -41,7 +41,6 @@ public final class CollectorURLScheme {
         let unencodableString: String
     }
     
-    
     public var itemid: String
     public var center: String?
     
