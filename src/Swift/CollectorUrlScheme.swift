@@ -37,17 +37,17 @@ public final class CollectorURLScheme {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: scheme)!)
     }
     
-    public var itemid: String
+    public var itemID: String
     public var center: String?
     
-    public init(itemid: String, center: String? = nil) {
-        self.itemid = itemid
+    public init(itemID: String, center: String? = nil) {
+        self.itemID = itemID
         self.center = center
     }
     
     public func generateURL() throws -> NSURL? {
         
-        var stringBuilder = "\(CollectorURLScheme.scheme)//?itemid=\(itemid)"
+        var stringBuilder = "\(CollectorURLScheme.scheme)//?itemid=\(itemID)"
         
         if let center = center {
             stringBuilder += "&center=\(center)"
