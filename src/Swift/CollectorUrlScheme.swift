@@ -37,10 +37,6 @@ public final class CollectorURLScheme {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: scheme)!)
     }
     
-    public struct URLSchemeError: ErrorType {
-        let unencodableString: String
-    }
-    
     public var itemid: String
     public var center: String?
     
