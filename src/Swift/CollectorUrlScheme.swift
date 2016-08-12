@@ -18,7 +18,7 @@
  */
 
 
-import Foundation
+import UIKit
 
 private extension String {
     private func queryArgumentEncodedString() -> String? {
@@ -37,22 +37,27 @@ public final class CollectorURLScheme {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: scheme)!)
     }
     
-    public var itemID: String
+    public var itemID: String?
     public var center: String?
     
-    public init(itemID: String, center: String? = nil) {
+    public init(itemID: String? = nil, center: String? = nil) {
         self.itemID = itemID
         self.center = center
     }
     
     public func generateURL() throws -> NSURL? {
         
-        var stringBuilder = "\(CollectorURLScheme.scheme)//?itemid=\(itemID)"
+        var stringBuilder = "\(CollectorURLScheme.scheme)//?"
         
-        if let center = center {
-            stringBuilder += "&center=\(center)"
+        if let itemID = itemID {
+            stringBuilder += "itemid=\(itemID)"
+            if let center = center {
+                stringBuilder += "&center=\(center)"
+            }
+        } else if let center = center {
+            stringBuilder += "center=\(center)"
         }
-
+        
         return NSURL(string: stringBuilder)
     }
 }
