@@ -57,7 +57,6 @@ public final class CollectorURLScheme {
         } else if let center = center {
             stringBuilder += "center=\(center)"
         }
-        
         return NSURL(string: stringBuilder)
     }
 }
