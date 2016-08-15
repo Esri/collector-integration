@@ -4,8 +4,7 @@ This is a multi-language repository that contains documentation and sample code 
 
 ##Supported versions
 
-* Collector for ArcGIS on iOS 10.4.0 or later
-* Collector for ArcGIS on Windows 10 10.4.0 or later
+* Collector for ArcGIS 10.4.0 or later on iOS and Windows 10
 
 ## What's included
 
