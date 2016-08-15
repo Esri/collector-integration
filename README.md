@@ -5,6 +5,7 @@ This is a multi-language repository that contains documentation and sample code 
 ##Supported versions
 
 * Collector for ArcGIS on iOS 10.4.0 or later
+* Collector for ArcGIS on Windows 10 10.4.0 or later
 
 ## What's included
 
@@ -20,7 +21,7 @@ Read the following documentation and clone down the appropriate language into yo
 
 ####What is the Collector for ArcGIS URL scheme?
 
-A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on the iOS platform. Support for the Windows 10 and Android platforms is coming. 
+A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on the iOS and Windows 10 platforms. Support for Android is coming. 
 
 ####Basic URL scheme structure
 
