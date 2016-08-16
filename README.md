@@ -10,7 +10,7 @@ This is a multi-language repository that contains documentation and sample code 
 ## What's included
 
 * [Documentation](#documentation) on the URL scheme structure
-* [Sample code](#sample) for iOS (Swift) and Windows (.NET)
+* [Sample code](#sample) for iOS (Swift), Windows (.NET), and Python
 
 ## Getting started
 
@@ -65,6 +65,7 @@ If an error is encountered when processing a URL scheme, the user will receive a
 
 * [Swift (iOS)](https://github.com/Esri/collector-integration/tree/master/src/Swift)
 * [Python](https://github.com/Esri/collector-integration/tree/master/src/Python)
+* [.NET (Windows)](insert link)
 
 ## Resources and related repositories
 
