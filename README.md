@@ -10,7 +10,7 @@ This is a multi-language repository that contains documentation and sample code 
 ## What's included
 
 * [Documentation](#documentation) on the URL scheme structure
-* [Sample code](#sample) for iOS (Swift), and Web (JavaScript)
+* [Sample code](#sample) for iOS (Swift) and Windows (.NET)
 
 ## Getting started
 
