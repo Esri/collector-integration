@@ -64,8 +64,8 @@ If an error is encountered when processing a URL scheme, the user will receive a
 ## Sample code
 
 * [Swift (iOS)](https://github.com/Esri/collector-integration/tree/master/src/Swift)
-* [Python](https://github.com/Esri/collector-integration/tree/master/src/Python)
-* [.NET (Windows)](insert link)
+* [.NET (Windows)]()
+* * [Python](https://github.com/Esri/collector-integration/tree/master/src/Python)
 
 ## Resources and related repositories
 
