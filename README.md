@@ -2,26 +2,25 @@
 
 This is a multi-language repository that contains documentation and sample code for creating custom URL schemes in [Collector for ArcGIS](http://doc.arcgis.com/en/collector/).
 
-##Versions Supported
+##Supported versions
 
-* Collector for ArcGIS iOS 10.4.0 and greater
-* Collector for ArcGIS Windows 10.4.0 (beta) and greater
+* Collector for ArcGIS 10.4.0 or later on iOS and Windows 10
 
 ## What's included
 
 * [Documentation](#documentation) on the URL scheme structure
 * [Sample code](#sample) for iOS (Swift), Windows (.NET), and Python
 
-## Getting started
+## Get started
 
-Read the following documentation, and clone down the appropriate language into your development environment.
+Read the following documentation and clone down the appropriate language into your development environment.
 <a name="documentation"></a>
 
 ## Documentation
 
 ####What is the Collector for ArcGIS URL scheme?
 
-A URL scheme allows you to open a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on the iOS platform.
+A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on the iOS and Windows 10 platforms. Support for Android is coming. 
 
 ####Basic URL scheme structure
 
@@ -31,13 +30,13 @@ All Collector URL schemes start with the identifier `arcgis-collector` and can c
 arcgis-collector://?parameter=value&parameter=value
 `
 
-The rest of this topic describes the various parameters Collector supports.
+The rest of this topic describes the various parameters Collector currently supports.
 
 ####Open a web map 
 
-This is one of the simplest schemes that can be used. The following example url scheme demonstrates how to open a specific map within collector.
+This is one of the simplest schemes that can be used. The following example URL scheme demonstrates how to open a specific map within Collector.
 
-`itemID`: The web map to open within Collector.  (*optional*)
+`itemID`: (*optional*) The web map to open in Collector.  
 
 The following example URL defines opening a web map:
 
@@ -49,7 +48,7 @@ arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49
 
 The location on which to center the map.  
 
-`center`: Specified as a set of latitude, longitude (y,x) coordinates.  Coordinates must be in WGS84 coordinates. (*optional*)
+`center`: (*optional*) Specified as a set of latitude, longitude (y,x) coordinates. Coordinates must be in WGS84. 
 
 The following example URL defines a map to open and a location to center the map:
 
@@ -80,7 +79,7 @@ Not Esri's doc but still pretty dang useful :-)
 
 Find a bug or want to request a new feature? Please let us know by [submitting an issue](https://github.com/Esri/collector-integration/issues/new). Thank you!
 
-## Contributing
+## Contribute
 
 Anyone and everyone is welcome to contribute. See our [guidelines for contributing](https://github.com/esri/contributing).
 
