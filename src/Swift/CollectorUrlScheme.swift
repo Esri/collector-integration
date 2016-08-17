@@ -18,7 +18,7 @@
  */
 
 
-import UIKit
+import Foundation
 
 private extension String {
     private func queryArgumentEncodedString() -> String? {
