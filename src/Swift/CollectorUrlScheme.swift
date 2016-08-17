@@ -47,16 +47,20 @@ public final class CollectorURLScheme {
     
     public func generateURL() throws -> NSURL? {
         
-        var stringBuilder = "\(CollectorURLScheme.scheme)//?"
+        var stringBuilder = "\(CollectorURLScheme.scheme)//"
         
         if let itemID = itemID {
-            stringBuilder += "itemid=\(itemID)"
-            if let center = center {
-                stringBuilder += "&center=\(center)"
-            }
-        } else if let center = center {
-            stringBuilder += "center=\(center)"
+            stringBuilder = addParameter(stringBuilder, parameterName: "itemid", parameterValue: itemID)
         }
+        if let center = center {
+            stringBuilder = addParameter(stringBuilder, parameterName: "center", parameterValue: center)
+        }
+        
         return NSURL(string: stringBuilder)
+    }
+    
+    private func addParameter(stringBuilder: String, parameterName: String, parameterValue: String) -> String {
+        
+        return stringBuilder.containsString("?") ? stringBuilder + "&" + parameterName + "=" + parameterValue : stringBuilder + "?" + parameterName + "=" + parameterValue
     }
 }
