@@ -63,7 +63,7 @@ If an error is encountered when processing a URL scheme, the user will receive a
 ## Sample code
 
 * [Swift (iOS)](https://github.com/Esri/collector-integration/tree/master/src/Swift)
-* [.NET (Windows)]()
+* [.NET (Windows)](https://github.com/Esri/collector-integration/tree/master/src/dotnet)
 
 ## Resources and related repositories
 
