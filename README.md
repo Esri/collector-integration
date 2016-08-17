@@ -65,7 +65,7 @@ If an error is encountered when processing a URL scheme, the user will receive a
 * [Swift (iOS)](https://github.com/Esri/collector-integration/tree/master/src/Swift)
 * [.NET (Windows)](https://github.com/Esri/collector-integration/tree/master/src/dotnet)
 
-## Resources and related repositories
+## Resources
 
 * [Collector for ArcGIS documentation](http://doc.arcgis.com/en/collector/)
 * [Navigator for ArcGIS integration repository](https://github.com/Esri/navigator-integration)
@@ -78,9 +78,9 @@ Not Esri's doc but still pretty dang useful :-)
 
 Find a bug or want to request a new feature? Please let us know by [submitting an issue](https://github.com/Esri/collector-integration/issues/new). Thank you!
 
-## Contribute
+## Contributing
 
-Anyone and everyone is welcome to contribute. See our [guidelines for contributing](https://github.com/esri/contributing).
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
 ## Licensing
 Copyright 2016 Esri
@@ -97,5 +97,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[](Esri Tags: iOS, Windows, Collector, URL Scheme)
-[](Esri Language: Java, C#, Javascript)
+A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/collector-integration/master/license.txt) file.
+
+[](Esri Tags: iOS Windows Collector URL-Scheme C-Sharp)
+[](Esri Language: Swift)
