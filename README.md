@@ -36,7 +36,7 @@ The rest of this topic describes the various parameters Collector currently supp
 
 This is one of the simplest schemes that can be used. The following example URL scheme demonstrates how to open a specific map within Collector.
 
-`itemID`: (*optional*) The web map to open in Collector.  
+`itemID`: The web map to open in Collector.  
 
 The following example URL defines opening a web map:
 
