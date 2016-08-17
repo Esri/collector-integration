@@ -60,7 +60,6 @@ public final class CollectorURLScheme {
     }
     
     private func addParameter(stringBuilder: String, parameterName: String, parameterValue: String) -> String {
-        
-        return stringBuilder.containsString("?") ? stringBuilder + "&" + parameterName + "=" + parameterValue : stringBuilder + "?" + parameterName + "=" + parameterValue
+        return  stringBuilder + (stringBuilder.containsString("?") ? "&" : "?") + parameterName + "=" + parameterValue
     }
 }
