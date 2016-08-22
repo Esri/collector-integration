@@ -73,7 +73,7 @@ If an error is encountered when processing a URL scheme, the user will receive a
 
 ## Issues
 
-Find a bug or want to request a new feature? Let us know by [submitting an issue](https://github.com/Esri/collector-integration/issues/new). Thank you!
+Find a bug or want to request a new feature? Please let us know by [submitting an issue](https://github.com/Esri/collector-integration/issues/new). Thank you!
 
 ## Contributing
 
