@@ -18,11 +18,11 @@ Read the following documentation and clone down the appropriate language into yo
 
 ## Documentation
 
-####What is the Collector for ArcGIS URL scheme?
+####Collector URL scheme overview
 
 A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on the iOS and Windows 10 platforms. Support for Android is coming. 
 
-####Basic URL scheme structure
+####Basic Collector URL scheme structure
 
 All Collector URL schemes start with the identifier `arcgis-collector` and can contain additional parameters that follow the form:
 
@@ -30,7 +30,7 @@ All Collector URL schemes start with the identifier `arcgis-collector` and can c
 arcgis-collector://?parameter=value&parameter=value
 `
 
-The rest of this topic describes the various parameters Collector currently supports.
+The remainder of this topic describes the various parameters Collector currently supports.
 
 ####Open a web map 
 
@@ -69,9 +69,6 @@ If an error is encountered when processing a URL scheme, the user will receive a
 
 * [Collector for ArcGIS documentation](http://doc.arcgis.com/en/collector/)
 * [Navigator for ArcGIS integration repository](https://github.com/Esri/navigator-integration)
-
-Not Esri's doc but still pretty dang useful :-)
-
 * [Apple's guide to custom URL schemes](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007899)
 
 ## Issues
