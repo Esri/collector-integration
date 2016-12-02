@@ -59,7 +59,7 @@ public final class CollectorUrlSchemeUtil {
     /**
      * Open the specified map in Collector for ArcGIS.
      *
-     * @param activity  the activity Launching Collector for ArcGIS.
+     * @param activity  the activity launching Collector for ArcGIS.
      * @param mapItemId The web map item ID to open within Collector.
      * @param mapCenter Specified as a set of latitude, longitude (y,x) coordinates. Coordinates must be in WGS84 coordinates. (optional)
      * @throws IllegalArgumentException if the map item id passed in is null or empty
