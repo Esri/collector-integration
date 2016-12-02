@@ -35,6 +35,9 @@ public final class CollectorUrlSchemeUtil {
 
     private static final String MAP_CENTER = "center";
 
+    /**
+     * The constructor is made private because this class is only intended to be used with its static method
+     */
     private CollectorUrlSchemeUtil() {
     }
 
