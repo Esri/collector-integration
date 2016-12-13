@@ -4,12 +4,12 @@ This is a multi-language repository that contains documentation and sample code 
 
 ##Supported versions
 
-* Collector for ArcGIS 10.4.0 or later on iOS and Windows 10
+* Collector for ArcGIS 10.4.0 or later on iOS and Windows 10, and Collector for ArcGIS 10.4.1 or later on Android
 
 ## What's included
 
 * [Documentation](#documentation) on the URL scheme structure
-* [Sample code](#sample) for iOS (Swift) and Windows (.NET)
+* [Sample code](#sample) for iOS (Swift), Windows (.NET), and Android (Java)
 
 ## Get started
 
@@ -20,7 +20,7 @@ Read the following documentation and clone down the appropriate language into yo
 
 ####Collector URL scheme overview
 
-A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on the iOS and Windows 10 platforms. Support for Android is coming. 
+A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on all platforms.
 
 ####Basic Collector URL scheme structure
 
@@ -64,6 +64,7 @@ If an error is encountered when processing a URL scheme, the user will receive a
 
 * [Swift (iOS)](https://github.com/Esri/collector-integration/tree/master/src/Swift)
 * [.NET (Windows)](https://github.com/Esri/collector-integration/tree/master/src/dotnet)
+* [Java (Android)](https://github.com/Esri/collector-integration/tree/master/src/java)
 
 ## Resources
 
