@@ -25,8 +25,8 @@ from src.Python.CollectorURLScheme import CollectorURLHyperlinks
 '''1) Call to libraries -- Generate multiple link pages from explicit list of links'''
 # define list of link lists and generate html page
 hyperlinkObject = CollectorURLHyperlinks()
-explicitURLs = (('arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e', 'link1'),
-                ('arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e', 'link2'),
-                ('arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e', 'link3'),)
+explicitURLs = (('arcgis-collector://', 'link1'),
+                ('arcgis-collector://?itemID=90472a60554e4093b09311f327b06670', 'link2'),
+                ('arcgis-collector://?itemID=90472a60554e4093b09311f327b06670&center=41.772023,-88.152667', 'link3'))
 htmlPageTitle = "ExplicitListOfURLs"
 hyperlinkObject.generateHTMLpage(explicitURLs, htmlPageTitle)

@@ -42,7 +42,7 @@ class CollectorURLScheme:
         :param parameterDictionary: the dictionary of key/value pairs to be used when building url
         """
         self.__parameterDictionary = parameterDictionary
-        self.__itemID = self.__parameterDictionary.get("id", None)
+        self.__itemID = self.__parameterDictionary.get("itemID", None)
         self.__center = self.__parameterDictionary.get("center", None)
 
     def generateURL(self):
@@ -52,10 +52,11 @@ class CollectorURLScheme:
         """
         stringBuilder = self.__collectorScheme + "?"
         if self.__itemID:
-            stringBuilder += self.__itemID
+            stringBuilder += "itemID=" + self.__itemID
             self.__parameterCount += 1
         if self.__center:
-            stringBuilder += self._encodedCenter(self.__center)
+            if self.__parameterCount > 0: stringBuilder += "&"
+            stringBuilder += "center=" + self._encodedCenter(self.__center)
             self.__parameterCount += 1
         return stringBuilder
 
@@ -127,7 +128,7 @@ class CollectorURLHyperlinks:
         <html> <head><title>HTML Link</title></head> <body bgcolor=\"white\"> <h1>HTML Link</h1><p><br>\n")
         print("Generating HTML file at location of library...")
         urlString = str("<a href=\"{}\">Click here to open the collector app link </a><br>\n").format(validURL)
-        # Example of what string looks like --Delete after testing
+        # Example of what string looks like
         print(urlString)
         # Write link to file
         fp.write(urlString)

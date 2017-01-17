@@ -27,13 +27,12 @@ GENERATEURL = True
 
 
 '''2a) Example variables for building url -- USE THIS INFO IF YOU WANT TO GENERATE A HTML PAGE USING LIBRARY GENERATED URL'''
-itemID = '2adf08a4a1a84834a773805a6e86f69e'
-center = '43.656789,-70.278083'
-# dictionary of variables -- parameters are optional by deleting key/value
+itemID = '90472a60554e4093b09311f327b06670'
+center = '41.772023,-88.152667'
 parameterDictionary = {'itemID': itemID, 'center': center}
 
 '''2b) Example string for explicit url -- USE THIS INFO IF YOU WANT TO GENERATE A HTML PAGE USING EXPLICIT URL'''
-explicitURL = 'arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e'
+explicitURL = 'arcgis-collector://?itemID=90472a60554e4093b09311f327b06670'
 title = "simple_openMap"
 
 '''3) Call to libraries -- Generate single link pages from data above'''

@@ -1,10 +1,4 @@
 applink,title,result,group
 arcgis-collector://,Collector Scheme,PASS,Basic; App Link
-arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e,Collector to Public Web Map,PASS,Basic; App Link; Collector 
-arcgis-collector://?itemID=2a30ec6298ac4042932eaeb138244c60,Collector to nitrouser Web Map,PASS,Basic; App Link; Collector 
-arcgis-collector://?itemID=fc60dfd46b234fbeaa74e76e6b17fb7b,Collector to esri-authored Maine MMPK,PASS,Basic; App Link; Collector 
-arcgis-collector://?itemID=a28c6838dfe64c948b7357a7f6311b53,Collector to nitrouser MMPK,PASS,Basic; App Link; Collector 
-"arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e&center=43.656789,-70.278083",Collector to Web Map -- Center type coordinate pair,PASS,Basic; App Link; Collector 
-"arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e&center=45.656789,-69.278083",Collector to Web Map -- Center type coordinate pair DIFFERENT THAN ABOVE,PASS,Basic; App Link; Collector 
-"arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e&center=271+Park+Ave,+Portland+ME",Collector to Web Map -- Center type address,PASS,Basic; App Link; Collector 
-"arcgis-collector://?itemID=2adf08a4a1a84834a773805a6e86f69e&center=Hadlock+Field,+Portland+ME",Collector to Web Map -- Center type POI,PASS,Basic; App Link; Collector 
+arcgis-collector://?itemID=90472a60554e4093b09311f327b06670,Collector to Web Map,PASS,Basic; App Link; Collector
+"arcgis-collector://?itemID=90472a60554e4093b09311f327b06670&center=41.772023,-88.152667",Collector to Web Map and Center,PASS,Basic; App Link; Collector

@@ -6,8 +6,8 @@ Supports Python 2.7+ and Python 3.4+
 
 Within this repository you will find: 
 * `CollectorURLScheme.py` (the main library that will be used by the user)
-* `./Sample Data/ExplorerURLScheme_XXXXXXXXX.py` (various examples of how the library can be used)
-* `./Sample Data/applink_testcases.csv` (an excel csv file that is a working list of all possible test cases)
+* `./Sample Data/CollectorURLScheme_XXXXXXXXX.py` (various examples of how the library can be used)
+* `./Sample Data/applink_testcases.csv` (an excel csv file for some test cases)
 * `./applinks directory/` (output directory to store generated html files)
 * `./qrcodes/` (output directory for generated QR code images)
 
