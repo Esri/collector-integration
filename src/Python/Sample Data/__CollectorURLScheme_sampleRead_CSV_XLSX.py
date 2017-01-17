@@ -18,14 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 import csv
 '''Needed for xlsx section'''
 import xlrd
-from xlrd.sheet import ctype_text
 
 '''EXAMPLE OF HOW TO BUILD URL FROM CSV OF STOPS USING 'CollectorURLScheme' LIBRARY'''
 '''import library'''
 # if library is inside folder as your script you can use:
 # import CollectorURLScheme
 # otherwise below references from the root folder
-from src.Python.CollectorURLScheme_GeneratorLibrary.CollectorURLScheme import CollectorURLScheme, CollectorURLHyperlinks
+from src.Python.CollectorURLScheme import CollectorURLScheme, CollectorURLHyperlinks
 
 
 csvfile_or_xlsxfile = "csv"

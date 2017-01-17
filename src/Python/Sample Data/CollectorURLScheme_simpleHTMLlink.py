@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 # if library is inside folder as your script you can use:
 # import CollectorURLScheme
 # or explicitly point to folders with dot notation
-from src.Python.CollectorURLScheme_GeneratorLibrary.CollectorURLScheme import CollectorURLScheme, CollectorURLHyperlinks
+from src.Python.CollectorURLScheme import CollectorURLScheme, CollectorURLHyperlinks
 
 '''1) Specify if you want to generate or use explicit url'''
 GENERATEURL = True

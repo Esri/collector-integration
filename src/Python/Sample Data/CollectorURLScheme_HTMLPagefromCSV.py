@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 # if library is inside folder as your script you can use:
 # import CollectorURLScheme
 # or explicitly point to folders with dot notation
-from src.Python.CollectorURLScheme_GeneratorLibrary.CollectorURLScheme import CollectorURLHyperlinks
+from src.Python.CollectorURLScheme import CollectorURLHyperlinks
 
 '''1) Call to libraries -- Generate multiple link pages from either explicit list of CSV'''
 # prepare list of link lists from CSV and generate html page

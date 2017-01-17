@@ -23,7 +23,7 @@ import io
 import pyqrcode
 
 '''
-Library for generating valid url schemes and generated html links/pages
+Library for generating valid url schemes and html links/pages
 '''
 
 class CollectorURLScheme:
