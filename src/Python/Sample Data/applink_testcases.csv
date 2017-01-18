@@ -1,0 +1,4 @@
+applink,title,result,group
+arcgis-collector://,Collector Scheme,PASS,Basic; App Link
+arcgis-collector://?itemID=90472a60554e4093b09311f327b06670,Collector to Web Map,PASS,Basic; App Link; Collector
+"arcgis-collector://?itemID=90472a60554e4093b09311f327b06670&center=41.772023,-88.152667",Collector to Web Map and Center,PASS,Basic; App Link; Collector
