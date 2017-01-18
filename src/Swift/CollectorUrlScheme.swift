@@ -34,22 +34,29 @@ public final class CollectorURLScheme {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: scheme)!)
     }
     
-    public var itemID: String
+    public var itemID: String?
     public var center: String?
     
-    public init(itemID: String, center: String? = nil) {
+    public init(itemID: String? = nil, center: String? = nil) {
         self.itemID = itemID
         self.center = center
     }
     
     public func generateURL() throws -> NSURL? {
         
-        var stringBuilder = "\(CollectorURLScheme.scheme)//?itemid=\(itemID)"
+        var stringBuilder = "\(CollectorURLScheme.scheme)//"
         
-        if let center = center {
-            stringBuilder += "&center=\(center)"
+        if let itemID = itemID {
+            stringBuilder = addParameter(stringBuilder, parameterName: "itemid", parameterValue: itemID)
         }
-
+        if let center = center {
+            stringBuilder = addParameter(stringBuilder, parameterName: "center", parameterValue: center)
+        }
+        
         return NSURL(string: stringBuilder)
+    }
+    
+    private func addParameter(stringBuilder: String, parameterName: String, parameterValue: String) -> String {
+        return  stringBuilder + (stringBuilder.containsString("?") ? "&" : "?") + parameterName + "=" + parameterValue
     }
 }
