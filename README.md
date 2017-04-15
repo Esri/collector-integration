@@ -2,7 +2,7 @@
 
 This is a multi-language repository that contains documentation and sample code for creating custom URL schemes in [Collector for ArcGIS](http://doc.arcgis.com/en/collector/).
 
-##Supported versions
+## Supported versions
 
 * Collector for ArcGIS 10.4.0 or later on iOS and Windows 10, and Collector for ArcGIS 10.4.1 or later on Android
 
@@ -18,11 +18,11 @@ Read the following documentation and clone down the appropriate language into yo
 
 ## Documentation
 
-####Collector URL scheme overview
+#### Collector URL scheme overview
 
 A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on all platforms.
 
-####Basic Collector URL scheme structure
+#### Basic Collector URL scheme structure
 
 All Collector URL schemes start with the identifier `arcgis-collector` and can contain additional parameters that follow the form:
 
@@ -32,7 +32,7 @@ arcgis-collector://?parameter=value&parameter=value
 
 The remainder of this topic describes the various parameters Collector currently supports.
 
-####Open a web map 
+#### Open a web map 
 
 This is one of the simplest schemes that can be used. The following example URL scheme demonstrates how to open a specific map within Collector.
 
@@ -44,7 +44,7 @@ The following example URL defines opening a web map:
 arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49 
 ```
 
-####Center at a given location
+#### Center at a given location
 
 The location on which to center the map.  
 
@@ -56,7 +56,7 @@ The following example URL defines a map to open and a location to center the map
 arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49&center=34.0547155,-117.1961714
 ```
 
-####Errors
+#### Errors
 If an error is encountered when processing a URL scheme, the user will receive an alert.
 <a name="sample"></a>
 
