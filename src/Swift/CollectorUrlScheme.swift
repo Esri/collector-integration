@@ -16,13 +16,13 @@
 
 
 import Foundation
+import UIKit
 
-private extension String {
-    private func queryArgumentEncodedString() -> String? {
-        let charSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        charSet.removeCharactersInString("&")
-        
-        return stringByAddingPercentEncodingWithAllowedCharacters(charSet)
+fileprivate extension String {
+    fileprivate func queryArgumentEncodedString() -> String? {
+        var charSet = NSCharacterSet.urlQueryAllowed
+        charSet.remove(charactersIn: "&")
+        return addingPercentEncoding(withAllowedCharacters: charSet)
     }
 }
 
@@ -31,11 +31,15 @@ public final class CollectorURLScheme {
     public static let scheme = "arcgis-collector:"
     
     public static var canOpen: Bool {
-        return UIApplication.sharedApplication().canOpenURL(NSURL(string: scheme)!)
+        return UIApplication.shared.canOpenURL(URL(string: scheme)!)
     }
     
     public var itemID: String
     public var center: String?
+
+    public var featureSourceURL: URL?
+    public var featureAttributes: [String:Any]?
+    public var featureID: String?
     
     public init(itemID: String, center: String? = nil) {
         self.itemID = itemID
@@ -48,6 +52,23 @@ public final class CollectorURLScheme {
         
         if let center = center {
             stringBuilder += "&center=\(center)"
+        }
+
+        if let url = featureSourceURL?.absoluteString {
+            stringBuilder += "&featureSourceURL=\(url)"
+
+            if let attrs = featureAttributes {
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: attrs, options: [])
+                    if let encodedAttributesString = String(data: data, encoding: String.Encoding.utf8)?.queryArgumentEncodedString() {
+                        stringBuilder += "&featureAttributes=\(encodedAttributesString)"
+                    }
+                } catch {}
+            }
+
+            if let fid = featureID {
+                stringBuilder += "&featureID=\(fid)"
+            }
         }
 
         return NSURL(string: stringBuilder)
