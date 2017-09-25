@@ -58,12 +58,10 @@ public final class CollectorURLScheme {
             stringBuilder += "&featureSourceURL=\(url)"
 
             if let attrs = featureAttributes {
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: attrs, options: [])
-                    if let encodedAttributesString = String(data: data, encoding: String.Encoding.utf8)?.queryArgumentEncodedString() {
-                        stringBuilder += "&featureAttributes=\(encodedAttributesString)"
-                    }
-                } catch {}
+                let data = try JSONSerialization.data(withJSONObject: attrs, options: [])
+                if let encodedAttributesString = String(data: data, encoding: String.Encoding.utf8)?.queryArgumentEncodedString() {
+                    stringBuilder += "&featureAttributes=\(encodedAttributesString)"
+                }
             }
 
             if let fid = featureID {
