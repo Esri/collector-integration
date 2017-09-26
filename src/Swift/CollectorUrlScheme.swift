@@ -16,33 +16,73 @@
 
 
 import Foundation
+import UIKit
 
-private extension String {
-    private func queryArgumentEncodedString() -> String? {
-        let charSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
-        charSet.removeCharactersInString("&")
-        
-        return stringByAddingPercentEncodingWithAllowedCharacters(charSet)
+fileprivate extension String {
+    fileprivate func queryArgumentEncodedString() -> String? {
+        var charSet = NSCharacterSet.urlQueryAllowed
+        charSet.remove(charactersIn: "&")
+        return addingPercentEncoding(withAllowedCharacters: charSet)
     }
 }
 
 public final class CollectorURLScheme {
-    
+
+
+    /// The URL scheme that triggers Collector for ArcGIS.
+    ///
     public static let scheme = "arcgis-collector:"
-    
+
+    /// A convenience property that indicates whether or not Collector for ArcGIS is
+    /// installed on the iOS device.
+    ///
+    /// NOTE: You must declare the `arcgis-collector` URL scheme in the Info.plist of your application
+    ///       under the `LSApplicationQueriesSchemes` key.
+    ///
     public static var canOpen: Bool {
-        return UIApplication.sharedApplication().canOpenURL(NSURL(string: scheme)!)
+        return UIApplication.shared.canOpenURL(URL(string: scheme)!)
     }
-    
-    public var itemID: String
+
+
+    /// The specific web map to open when the application is launched.
+    ///
+    public let itemID: String
+
+    /// The location in which to center the map. Should be in the following format (decimal degrees):
+    /// <latitude, longitude>
+    ///
     public var center: String?
-    
+
+    /// The URL of the feature layer to start collecting from.
+    /// NOTE: This should be the URL to the layer, not the service.
+    ///
+    public var featureSourceURL: URL?
+
+    /// Attributes to set on the newly created feature. Only keys that
+    /// match the feature layer's field names (case-insensitive) should
+    /// be used.
+    ///
+    public var featureAttributes: [String:Any]?
+
+
+    /// Initializer for the scheme object. Requires at least an `itemID` of the web map to open
+    /// on launch.
+    ///
+    /// - Parameters:
+    ///   - itemID: The specific web map to open on launch.
+    ///   - center: An optional center point to pan to when the map has finished loading.
     public init(itemID: String, center: String? = nil) {
         self.itemID = itemID
         self.center = center
     }
-    
-    public func generateURL() throws -> NSURL? {
+
+
+    /// A method to generate a URL that can be used to create a hyperlink (or from within another iOS application)
+    /// to launch Collector with the specified parameters.
+    ///
+    /// - Returns: A valid URL that can be used to launch Collector for ArcGIS.
+    /// - Throws: An Error that occurs while trying to serialize JSON to Data or generate the URL from the given parameters.
+    public func generateURL() throws -> URL? {
         
         var stringBuilder = "\(CollectorURLScheme.scheme)//?itemid=\(itemID)"
         
@@ -50,6 +90,17 @@ public final class CollectorURLScheme {
             stringBuilder += "&center=\(center)"
         }
 
-        return NSURL(string: stringBuilder)
+        if let url = featureSourceURL?.absoluteString {
+            stringBuilder += "&featureSourceURL=\(url)"
+
+            if let attrs = featureAttributes {
+                let data = try JSONSerialization.data(withJSONObject: attrs, options: [])
+                if let encodedAttributesString = String(data: data, encoding: String.Encoding.utf8)?.queryArgumentEncodedString() {
+                    stringBuilder += "&featureAttributes=\(encodedAttributesString)"
+                }
+            }
+        }
+
+        return URL(string: stringBuilder)
     }
 }
