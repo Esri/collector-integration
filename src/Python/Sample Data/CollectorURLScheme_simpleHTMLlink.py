@@ -29,7 +29,9 @@ GENERATEURL = True
 '''2a) Example variables for building url -- USE THIS INFO IF YOU WANT TO GENERATE A HTML PAGE USING LIBRARY GENERATED URL'''
 itemID = '90472a60554e4093b09311f327b06670'
 center = '41.772023,-88.152667'
-parameterDictionary = {'itemID': itemID, 'center': center}
+featureSourceURL = 'https://sampleserver6.arcgisonline.com/arcgis/rest/services/DamageAssessment/FeatureServer/0'
+featureAttributes = {"numoccup":5, "descdamage":"Needs Attention"} 
+parameterDictionary = {'itemID': itemID, 'center': center, 'featureSourceURL': featureSourceURL, 'featureAttributes': featureAttributes}
 
 '''2b) Example string for explicit url -- USE THIS INFO IF YOU WANT TO GENERATE A HTML PAGE USING EXPLICIT URL'''
 explicitURL = 'arcgis-collector://?itemID=90472a60554e4093b09311f327b06670'
