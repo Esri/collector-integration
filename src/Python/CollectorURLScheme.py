@@ -21,6 +21,7 @@ import datetime
 import urllib.parse
 import io
 import pyqrcode
+import json
 
 '''
 Library for generating valid url schemes and html links/pages
@@ -73,7 +74,7 @@ class CollectorURLScheme:
         if self.__featureAttributes:
             if self.__parameterCount > 0:
                 stringBuilder += "&"
-            stringBuilder += "featureAttributes=" + str(self.__featureAttributes)
+            stringBuilder += "featureAttributes=" + urllib.parse.quote(json.dumps(self.__featureAttributes), safe=":,")
             self.__parameterCount += 1
         self._validateURL(stringBuilder)
         
