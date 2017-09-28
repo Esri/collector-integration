@@ -14,11 +14,15 @@
  limitations under the License.
  */
 
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import com.google.gson.Gson;
+
+import java.util.HashMap;
 
 /**
  * <p>
@@ -34,6 +38,10 @@ public final class CollectorUrlSchemeUtil {
     private static final String MAP_ITEM_ID = "itemID";
 
     private static final String MAP_CENTER = "center";
+
+    private static final String MAP_FEATURE_SOURCE_URL = "featureSourceURL";
+
+    private static final String MAP_FEATURE_ATTRIBUTES = "featureAttributes";
 
     /**
      * The constructor is made private because this class is only intended to be used with its static methods
@@ -67,10 +75,21 @@ public final class CollectorUrlSchemeUtil {
      * @param mapCenter Specified as a set of latitude, longitude (y,x) coordinates. Coordinates must be in WGS84 coordinates. (optional)
      * @throws IllegalArgumentException if the map item id passed in is null or empty
      */
-    public static void openMapInCollector(Activity activity, String mapItemId, String mapCenter) {
-        Uri uriBuilder = generateUri(mapItemId, mapCenter);
+    public static void openMapInCollector(Activity activity, String mapItemId, String mapCenter, String featureSourceURL, HashMap<String,Object> featureAttributes) {
+        Uri uriBuilder = generateUri(mapItemId, mapCenter, featureSourceURL, featureAttributes);
 
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, uriBuilder);
+        activity.startActivity(mapIntent);
+    }
+
+    /**
+     * Open the specified map in Collector for ArcGIS.
+     *
+     * @param activity  the activity launching Collector for ArcGIS.
+     * @param collectorURIScheme A properly formatted Uri to launch Collector
+     */
+    public static void openMapInCollector(Activity activity, Uri collectorURIScheme) {
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, collectorURIScheme);
         activity.startActivity(mapIntent);
     }
 
@@ -82,7 +101,7 @@ public final class CollectorUrlSchemeUtil {
      * @return A properly formatted Uri to launch Collector
      * @throws IllegalArgumentException if the map item id passed in is null or empty
      */
-    public static Uri generateUri(String mapItemId, String mapCenter) {
+    public static Uri generateUri(String mapItemId, String mapCenter, String featureSourceURL, HashMap<String, Object> featureAttributes) {
         if (mapItemId == null || mapItemId.isEmpty()) {
             throw new IllegalArgumentException("You must pass in a valid map item id");
         }
@@ -93,7 +112,11 @@ public final class CollectorUrlSchemeUtil {
         uriBuilder.authority("");
         uriBuilder.appendQueryParameter(MAP_ITEM_ID, mapItemId);
         uriBuilder.appendQueryParameter(MAP_CENTER, mapCenter);
+        uriBuilder.appendQueryParameter(MAP_FEATURE_SOURCE_URL, featureSourceURL);
 
+        String featureAttributeString = new Gson().toJson(featureAttributes);
+        uriBuilder.appendQueryParameter(MAP_FEATURE_ATTRIBUTES, featureAttributeString);
+        
         return uriBuilder.build();
     }
 }
