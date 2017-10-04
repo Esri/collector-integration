@@ -84,7 +84,7 @@ A`featureSourceURL` must be passed.
 
 All attribute values specified will overwrite any existing values present.  If a field is not present, or the type is incorrect, the attribute value will be ignored.
 
-Date fields should be represented as a numeric value (epoch time). Fields with an associated coded domain value should use the domain code.  Do not use the domain description.
+Date fields should be represented as a numeric value (ms since epoch time). Fields with an associated coded domain value should use the domain code.  Do not use the domain description.
 
 Feature attributes should be URL encoded prior to being passed to Collector. 
 
@@ -103,7 +103,7 @@ arcgis-collector://?itemID=5d417865c4c947d19a26a13c7d320323&center=43.524080, 5.
 ```
 
 #### Errors
-If an error is encountered when processing a URL scheme with an `itemID` and `center`, the user will receive an alert.  Errors encountered in processing `featureSourceURL` and `featureAttributes` parameters will not be presented to the user.
+If an error is encountered when processing a URL scheme with an `itemID`, the user will receive an alert.  Errors encountered in processing `center`, `featureSourceURL`, and `featureAttributes` parameters will not be presented to the user.
 <a name="sample"></a>
 
 ## Sample code
