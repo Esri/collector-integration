@@ -22,6 +22,8 @@ Read the following documentation and clone down the appropriate language into yo
 
 A URL scheme allows you to launch a native app from another app, website, or email. You can set options in the URL that will be passed to the app you want to open, causing it to perform specific functions, such as opening a web map and centering the map on a given location.  This capability is available on all platforms.
 
+Support for featureSourceURL and featureAttributes parameters is available in Collector 17.0.3 or later (iOS and Android only).
+
 #### Basic Collector URL scheme structure
 
 All Collector URL schemes start with the identifier `arcgis-collector` and can contain additional parameters that follow the form:
@@ -56,8 +58,52 @@ The following example URL defines a map to open and a location to center the map
 arcgis-collector://?itemID=35b1ccecf226485ea7d593f100996b49&center=34.0547155,-117.1961714
 ```
 
+#### Initiate a new feature collection 
+
+Starts a feature collection for a specific layer in the map.
+
+`featureSourceURL`: (*optional*) The URL to the layer or table in which to collect a feature.
+
+
+This will start the collect activity and filter the list of available feature templates to those associated with the `featureSourceURL`. 
+If `center` is passed this will be used as the geometry for a point feature, or the first vertex in a line or polygon feature.  Collection of new related tables is not supported.
+
+The following example URL initiates a feature collection for a layer, and the center is used to define the new feature's geometry:
+
+```
+arcgis-collector://?itemID=5d417865c4c947d19a26a13c7d320323&center=43.524080, 5.445545&featureSourceURL=http://sampleserver5a.arcgisonline.com/arcgis/rest/services/LocalGovernment/Recreation/FeatureServer/0
+```
+
+#### Initiate a new feature collection and specify attributes
+
+Include a set of attribute field values to populate to the new feature collection.  
+
+`featureAttributes`: (*optional*) A JSON dictionary of attributes to apply to the new feature collection.
+
+A`featureSourceURL` must be passed.
+
+All attribute values specified will overwrite any existing values present.  If a field is not present, or the type is incorrect, the attribute value will be ignored.
+
+Date fields should be represented as a numeric value (ms since epoch time). Fields with an associated coded domain value should use the domain code.  Do not use the domain description.
+
+Feature attributes should be URL encoded prior to being passed to Collector. 
+
+The following example URL specifies a layer to start a collection activity, uses the `center` parameter for the geometry, and includes values to populate two fields:
+
+```
+arcgis-collector://?itemID=5d417865c4c947d19a26a13c7d320323&center=43.524080, 5.445545&featureSourceURL=http://sampleserver5a.arcgisonline.com/arcgis/rest/services/LocalGovernment/Recreation/FeatureServer/0&featureAttributes={”quality”:2,“observed”:1502917218285}
+```
+
+Feature attributes should be URL encoded prior to being passed to Collector. 
+
+The following URL is identical to the previous example, only this has been URL encoded:
+
+```
+arcgis-collector://?itemID=5d417865c4c947d19a26a13c7d320323&center=43.524080, 5.445545&featureSourceURL=http://sampleserver5a.arcgisonline.com/arcgis/rest/services/LocalGovernment/Recreation/FeatureServer/0&featureAttributes=%7B%22quality%22:2,%22observed%22:1502917218285%7D
+```
+
 #### Errors
-If an error is encountered when processing a URL scheme, the user will receive an alert.
+If an error is encountered when processing a URL scheme with an `itemID`, the user will receive an alert.  Errors encountered in processing `center`, `featureSourceURL`, and `featureAttributes` parameters will not be presented to the user.
 <a name="sample"></a>
 
 ## Sample code
