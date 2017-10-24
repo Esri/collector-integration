@@ -21,6 +21,7 @@ import datetime
 import urllib.parse
 import io
 import pyqrcode
+import json
 
 '''
 Library for generating valid url schemes and html links/pages
@@ -32,8 +33,6 @@ class CollectorURLScheme:
     """
     # global variables
     __collectorScheme = "arcgis-collector://"
-    __validParameters = ["itemID", "center"]
-    __invalidStringCharacters = [" ", "&"]
     __parameterCount = 0  # counter for how many parameters have been passed to stringBuilder
 
     def __init__(self, parameterDictionary):
@@ -44,6 +43,8 @@ class CollectorURLScheme:
         self.__parameterDictionary = parameterDictionary
         self.__itemID = self.__parameterDictionary.get("itemID", None)
         self.__center = self.__parameterDictionary.get("center", None)
+        self.__featureSourceURL = self.__parameterDictionary.get("featureSourceURL", None)
+        self.__featureAttributes = self.__parameterDictionary.get("featureAttributes", None)
 
     def generateURL(self):
         """
@@ -51,13 +52,32 @@ class CollectorURLScheme:
         :return: stringBuilder: the validated url
         """
         stringBuilder = self.__collectorScheme + "?"
+        if self.__itemID is None or self.__itemID is '':
+            raise ValueError("Item ID value is invalid.")        
+        
         if self.__itemID:
             stringBuilder += "itemID=" + self.__itemID
-            self.__parameterCount += 1
+            self.__parameterCount += 1        
+            
         if self.__center:
-            if self.__parameterCount > 0: stringBuilder += "&"
+            if self.__parameterCount > 0:
+                stringBuilder += "&"
             stringBuilder += "center=" + self._encodedCenter(self.__center)
             self.__parameterCount += 1
+            
+        if self.__featureSourceURL:
+            if self.__parameterCount > 0:
+                stringBuilder += "&"
+            stringBuilder += "featureSourceURL=" + self.__featureSourceURL
+            self.__parameterCount += 1
+            
+        if self.__featureAttributes:
+            if self.__parameterCount > 0:
+                stringBuilder += "&"
+            stringBuilder += "featureAttributes=" + urllib.parse.quote(json.dumps(self.__featureAttributes), safe=":,")
+            self.__parameterCount += 1
+        self._validateURL(stringBuilder)
+        
         return stringBuilder
 
     def _encodedCenter(self, string=None):
@@ -76,15 +96,11 @@ class CollectorURLScheme:
         """
         applicationScheme, parameterString = self._splitStringBuilder(stringBuilder)
         # test applicationScheme is valid
-        if applicationScheme != self.__collectorScheme: raise ValueError("The application scheme is not valid for Collector")
+        if applicationScheme != self.__collectorScheme:
+            raise ValueError("The application scheme is not valid for Collector")
         parameters = self._splitParameterString(parameterString)
-        if parameters is not None:
-            for parameter in parameters:
-                parameterSplit = parameter.split("=")
-                parameterKey, parameterValue = parameterSplit[0], parameterSplit[1]
-                if parameterKey not in self.__validParameters: raise ValueError("Invalid parameter key entered: " + parameterKey)
-                for char in self.__invalidStringCharacters:
-                    if char in parameterValue: raise ValueError("Invalid encoded value entered: " + parameterValue)
+        if not parameters:
+            raise ValueError("Invalid Parameter dictionary")                
 
     def _splitStringBuilder(self, stringBuilder):
         """
