@@ -1,10 +1,17 @@
-# Collector custom URL scheme
+# This repository is no longer maintained.  
 
-This is a multi-language repository that contains documentation and sample code for creating custom URL schemes in [Collector for ArcGIS](http://doc.arcgis.com/en/collector/).
+For details on app link capabilities in our latest releases of ArcGIS Collector on Android or iOS, see our latest [app documentation](https://doc.arcgis.com/en/collector/ipad/help/deploy-map.htm#ESRI_SECTION1_F7DE2402BA8743E5BFC4A1241072960E) or our [ArcGIS API for Python documentation](https://developers.arcgis.com/python/api-reference/arcgis.apps.html).
 
-## Supported versions
+-----
 
-* Collector for ArcGIS 10.4.0 or later on iOS and Windows 10, and Collector for ArcGIS 10.4.1 or later on Android
+## Collector custom URL scheme
+
+This is a multi-language repository that contains documentation and sample code for creating custom URL schemes in [Collector for ArcGIS](https://doc.arcgis.com/en/collector-classic/).
+
+## Supported apps
+
+* Collector Classic (Android, iOS) - retiring 12/31/20
+* ArcGIS Collector (Windows 10)
 
 ## What's included
 
